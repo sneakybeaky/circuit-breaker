@@ -11,7 +11,7 @@
 
     <artifactId>circuit-breaker-sample</artifactId>
     <version>${applicationVersion}</version>
-    <name>Circuit Breaker Core</name>
+    <name>Circuit Breaker Samples</name>
 
 
     <dependencies>
