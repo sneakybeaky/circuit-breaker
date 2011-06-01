@@ -25,7 +25,7 @@ public class ClosedStateTest extends MockObjectTestCase {
     public void testFailuresJustBelowThreshold() {
 
         for (int i=0; i < FAILURE_THRESHOLD-1; i++) {
-            underTest.onError(circuitBreaker,null);
+            underTest.onError(circuitBreaker,new Throwable());
         }
 
     }
@@ -35,7 +35,7 @@ public class ClosedStateTest extends MockObjectTestCase {
         mockCircuitBreaker.expects(once()).method("trip");
 
         for (int i=0; i < FAILURE_THRESHOLD; i++) {
-            underTest.onError(circuitBreaker,null);
+            underTest.onError(circuitBreaker,new Throwable());
         }
 
     }
@@ -43,13 +43,13 @@ public class ClosedStateTest extends MockObjectTestCase {
     public void testOneSuccessResetsFailureCount() {
 
         for (int i=0; i < FAILURE_THRESHOLD-1; i++) {
-            underTest.onError(circuitBreaker,null);
+            underTest.onError(circuitBreaker,new Throwable());
         }
 
-        underTest.postInvoke(null);
+        underTest.postInvoke(circuitBreaker);
 
         for (int i=0; i < FAILURE_THRESHOLD-1; i++) {
-            underTest.onError(circuitBreaker,null);
+            underTest.onError(circuitBreaker,new Throwable());
         }
 
     }

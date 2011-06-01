@@ -36,7 +36,7 @@ public class OpenStateTest extends MockObjectTestCase {
         boolean exception = false;
 
         try {
-            underTest.preInvoke(null);
+            underTest.preInvoke(circuitBreaker);
         } catch (CircuitBreakerOpenException e) {
             exception = true;
         }
@@ -52,7 +52,7 @@ public class OpenStateTest extends MockObjectTestCase {
         boolean exception = false;
 
         try {
-            underTest.preInvoke(null);
+            underTest.preInvoke(circuitBreaker);
         } catch (CircuitBreakerOpenException e) {
             exception = true;
         }
@@ -76,7 +76,7 @@ public class OpenStateTest extends MockObjectTestCase {
     }
 
     public void testOnErrorDoesNothing() {
-        underTest.onError(circuitBreaker,null);
+        underTest.onError(circuitBreaker,new Exception());
     }
 
     private void setSystemTimeToJustAfterTimeout() {

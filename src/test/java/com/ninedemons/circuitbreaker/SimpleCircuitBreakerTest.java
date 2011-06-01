@@ -17,7 +17,7 @@ public class SimpleCircuitBreakerTest extends MockObjectTestCase {
     SimpleCircuitBreaker underTest;
 
     ClockStub clockStub = new ClockStub();
-    long TEST_TIMEOUT_IN_MILLISECS = 10000;
+    long TEST_TIMEOUT_IN_MILLISECONDS = 10000;
 
     Command command;
     Mock mockCommand;
@@ -28,7 +28,7 @@ public class SimpleCircuitBreakerTest extends MockObjectTestCase {
 
         SimpleStateFactory simpleStateFactory = new SimpleStateFactory();
         simpleStateFactory.setClock(clockStub);
-        simpleStateFactory.setTimeoutInMillisecs(TEST_TIMEOUT_IN_MILLISECS);
+        simpleStateFactory.setTimeoutInMillisecs(TEST_TIMEOUT_IN_MILLISECONDS);
         simpleStateFactory.setFailureThreshold(FAILURE_THRESHOLD);
 
         underTest = new SimpleCircuitBreaker();
@@ -103,7 +103,7 @@ public class SimpleCircuitBreakerTest extends MockObjectTestCase {
 
     private void setTimeoutPassed() {
         long now = clockStub.getNow();
-        now += TEST_TIMEOUT_IN_MILLISECS + 1;
+        now += TEST_TIMEOUT_IN_MILLISECONDS + 1;
         clockStub.setNow(now);
     }
 

@@ -28,7 +28,7 @@ public class HalfOpenStateTest extends MockObjectTestCase {
 
     public void testConnectionStillFailing() {
         mockCircuitBreaker.expects(once()).method("trip");
-        underTest.onError(circuitBreaker,null);
+        underTest.onError(circuitBreaker,new Throwable());
     }
 
     public void testPreInvokeDoesNothing() throws CircuitBreakerException {
