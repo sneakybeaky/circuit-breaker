@@ -16,16 +16,16 @@
 
     <dependencies>
         <dependency>
-            <groupId>apache-httpclient</groupId>
+            <groupId>commons-httpclient</groupId>
             <artifactId>commons-httpclient</artifactId>
             <version>3.1</version>
         </dependency>
 
-		<dependency>
-			<groupId>commons-logging</groupId>
-			<artifactId>commons-logging</artifactId>
-			<version>1.0.4</version>
-		</dependency>
+        <dependency>
+            <groupId>commons-logging</groupId>
+            <artifactId>commons-logging</artifactId>
+            <version>1.0.4</version>
+        </dependency>
 
         <dependency>
             <groupId>com.ninedemons</groupId>
