@@ -1,7 +1,8 @@
 package com.ninedemons.circuitbreaker.state;
 
-import EDU.oswego.cs.dl.util.concurrent.SynchronizedInt;
 import com.ninedemons.circuitbreaker.CircuitBreaker;
+
+import java.util.concurrent.atomic.AtomicInteger;
 
 /**
  * Closed state is when the integration is working normally - all
@@ -10,7 +11,7 @@ import com.ninedemons.circuitbreaker.CircuitBreaker;
 public class ClosedState implements State {
 
     int failureThreshold;
-    SynchronizedInt failureCount = new SynchronizedInt(0);
+    AtomicInteger failureCount = new AtomicInteger(0);
 
     public void preInvoke(CircuitBreaker circuitBreaker) {
         //Do nothing
@@ -25,7 +26,7 @@ public class ClosedState implements State {
     }
 
     public void onError(CircuitBreaker circuitBreaker, Throwable throwable) {
-        int currentCount = failureCount.increment();
+        int currentCount = failureCount.incrementAndGet();
 
         if (currentCount >= failureThreshold) {
             circuitBreaker.trip();
