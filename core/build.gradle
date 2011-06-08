@@ -1,0 +1,5 @@
+description = 'The core circuit breaker'
+
+dependencies {
+    testCompile 'junit:junit:4.8.2' ,'jmock:jmock:1.0.1'
+}

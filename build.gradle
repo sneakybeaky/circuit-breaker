@@ -7,13 +7,11 @@ subprojects {
        mavenCentral()
     }
 
-    dependencies {
-        testCompile 'junit:junit:4.8.2' ,'jmock:jmock:1.0.1'
-    }
-
     version = '1.0'
 
     jar {
         manifest.attributes provider: 'ninedemons'
     }
 }
+
+description = 'Circuit breaker a la Michael Nygard'
